@@ -1,0 +1,13 @@
+{
+  "sendGrid": {
+    "apiKey": ""
+  },
+  "email": {
+    "toAddresses": [],
+    "bccAddresses": [],
+    "ccAddresses": [],
+    "fromAddress": "",
+    "fromDisplayName": "",
+    "subject": ""
+  } 
+}
