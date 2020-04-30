@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Freshlinq.WebHook.Client", "..\Freshlinq.WebHook.Client\Freshlinq.WebHook.Client.csproj", "{2FBACBAF-A8D8-4279-AEF5-9A0A8EE05A2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Freshlinq.WebHook.Client", "Freshlinq.WebHook.Client\Freshlinq.WebHook.Client.csproj", "{A587D8A2-9F80-477A-A157-A84EA60B2BC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2FBACBAF-A8D8-4279-AEF5-9A0A8EE05A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FBACBAF-A8D8-4279-AEF5-9A0A8EE05A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FBACBAF-A8D8-4279-AEF5-9A0A8EE05A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FBACBAF-A8D8-4279-AEF5-9A0A8EE05A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A587D8A2-9F80-477A-A157-A84EA60B2BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A587D8A2-9F80-477A-A157-A84EA60B2BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A587D8A2-9F80-477A-A157-A84EA60B2BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A587D8A2-9F80-477A-A157-A84EA60B2BC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
