@@ -25,4 +25,4 @@ Please update the ```clientConfiguration.json``` configuration file with SendGri
 }
 ````
 
-Please reach out to use should you need any help with your Freshlinq trading platform integration.
+Please reach out to us should you need any help with your Freshlinq trading platform integration.
