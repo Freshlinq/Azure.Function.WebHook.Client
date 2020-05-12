@@ -24,7 +24,19 @@ namespace Freshlinq.WebHook.Client
 {
     public class EmailBody
     {
-        private string EmailBodyTemplate => File.ReadAllText("./SampleEmailBody.html");
+        private string GetFilePath()  
+        {
+            if (File.Exists("./SampleEmailBody.html"))
+                return "./SampleEmailBody.html";
+            else if (File.Exists("../SampleEmailBody.html"))
+                return "../SampleEmailBody.html";
+            else if (File.Exists("./bin/SampleEmailBody.html"))
+                return "./bin/SampleEmailBody.html";
+
+            throw new FileNotFoundException("Could not find SampleEmailBody.html");
+        }
+
+        private string EmailBodyTemplate => File.ReadAllText(GetFilePath());
 
         private readonly ExportSetWebHookBody _webHookContent;
         public EmailBody(ExportSetWebHookBody webHookContent)
