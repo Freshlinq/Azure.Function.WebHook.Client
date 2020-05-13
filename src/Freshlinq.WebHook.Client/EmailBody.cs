@@ -19,17 +19,36 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Microsoft.Azure.WebJobs;
 
 namespace Freshlinq.WebHook.Client
 {
     public class EmailBody
     {
-        private string EmailBodyTemplate => File.ReadAllText("./SampleEmailBody.html");
+        private string GetFilePath()
+        {
+            const string fileName = "SampleEmailBody.html";
+
+            if (File.Exists(Path.Combine(_context.FunctionAppDirectory, fileName)))
+                return Path.Combine(_context.FunctionAppDirectory, fileName);
+            else if (File.Exists($"./{fileName}"))
+                return $"./{fileName}";
+            else if (File.Exists($"../{fileName}"))
+                return $"../{fileName}";
+            else if (File.Exists($"./bin/{fileName}"))
+                return $"./bin/{fileName}";
+
+            throw new FileNotFoundException($"Could not find {fileName}");
+        }
+
+        private string EmailBodyTemplate => File.ReadAllText(GetFilePath());
 
         private readonly ExportSetWebHookBody _webHookContent;
-        public EmailBody(ExportSetWebHookBody webHookContent)
+        private readonly ExecutionContext _context;
+        public EmailBody(ExecutionContext context, ExportSetWebHookBody webHookContent)
         {
             _webHookContent = webHookContent;
+            _context        = context;
         }
 
         public string Build()
