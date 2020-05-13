@@ -51,7 +51,7 @@ namespace Freshlinq.WebHook.Client
 
             if (config.Email != null)
             {
-                var body = new EmailBody(exportSetBody);
+                var body = new EmailBody(context, exportSetBody);
                 var bodyHtml = body.Build();
 
                 if (config.SendGrid != null && !string.IsNullOrEmpty(config.SendGrid.ApiKey))
