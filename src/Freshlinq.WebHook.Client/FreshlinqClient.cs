@@ -17,6 +17,7 @@ along with Freshlinq.WebHook.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -56,8 +57,16 @@ namespace Freshlinq.WebHook.Client
 
                 if (config.SendGrid != null && !string.IsNullOrEmpty(config.SendGrid.ApiKey))
                 {
+                    string subjectLine = config.Email.Subject;
+
+                    var match = Regex.Match(exportSetBody.FileName, @"^(?<bpRole>\w*)_(?<bpId>\d*)_");
+                    if (match.Success)
+                    {
+                        subjectLine = $"{match.Groups["bpRole"]} {match.Groups["bpId"]} - {exportSetBody.ExportSetName} - {config.Email.Subject}";
+                    }
+                    
                     var sender = new SendGridEmailSender(config.SendGrid.ApiKey);
-                    await sender.Send(bodyHtml, config.Email);
+                    await sender.Send(bodyHtml, subjectLine, config.Email);
                 }
             }
 

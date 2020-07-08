@@ -5,13 +5,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="clientConfiguration.json" />
-    <None Remove="local.clientConfiguration.json" />
     <None Remove="SampleEmailBody.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="local.clientConfiguration.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="clientConfiguration.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -26,10 +22,6 @@
   <ItemGroup>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </None>
   </ItemGroup>
 </Project>

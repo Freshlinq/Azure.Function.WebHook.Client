@@ -35,7 +35,7 @@ namespace Freshlinq.WebHook.Client
             _apiKey = apiKey;
         }
 
-        public async Task Send(string htmlBody, EmailConfiguration emailConfiguration)
+        public async Task Send(string htmlBody, string subjectLine, EmailConfiguration emailConfiguration)
         {
             var client = new SendGridClient(_apiKey);
 
@@ -43,7 +43,7 @@ namespace Freshlinq.WebHook.Client
             var msg = new SendGridMessage()
             {
                 From        = new EmailAddress(emailConfiguration.FromAddress, emailConfiguration.FromDisplayName),
-                Subject     = emailConfiguration.Subject,
+                Subject     = subjectLine,
                 HtmlContent = htmlBody
             };
 
