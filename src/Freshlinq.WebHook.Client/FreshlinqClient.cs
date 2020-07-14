@@ -65,8 +65,8 @@ namespace Freshlinq.WebHook.Client
                         subjectLine = $"{match.Groups["bpRole"]} {match.Groups["bpId"]} - {exportSetBody.ExportSetName} - {config.Email.Subject}";
                     }
                     
-                    var sender = new SendGridEmailSender(config.SendGrid.ApiKey);
-                    await sender.Send(bodyHtml, subjectLine, config.Email);
+                    var sender = new SendGridEmailSender(config.SendGrid.ApiKey, log);
+                    await sender.Send(bodyHtml, subjectLine, requestBody, config.Email);
                 }
             }
 
