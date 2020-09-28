@@ -59,10 +59,10 @@ namespace Freshlinq.WebHook.Client
                 {
                     string subjectLine = config.Email.Subject;
 
-                    var match = Regex.Match(exportSetBody.FileName, @"^(?<bpRole>\w*)_(?<bpId>\d*)_");
+                    var match = Regex.Match(exportSetBody.FileName, @"^(?<bpRole>\w*)_(?<bpId>\d*|[Aa]ll_[^\W_]*)_");
                     if (match.Success)
                     {
-                        subjectLine = $"{match.Groups["bpRole"]} {match.Groups["bpId"]} - {exportSetBody.ExportSetName} - {config.Email.Subject}";
+                        subjectLine = $"{match.Groups["bpRole"]} {match.Groups["bpId"].Value.Replace('_', ' ')} - {exportSetBody.ExportSetName} - {config.Email.Subject}";
                     }
                     
                     var sender = new SendGridEmailSender(config.SendGrid.ApiKey, log);
